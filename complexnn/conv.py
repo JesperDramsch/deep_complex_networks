@@ -12,7 +12,7 @@ from keras.layers import (
     Layer,
     InputSpec,
 )
-from keras.layers.convolutional import _Conv
+from tensorflow.keras.layers import Conv2D
 from keras.utils import conv_utils
 from keras.backend.common import normalize_data_format
 import numpy as np

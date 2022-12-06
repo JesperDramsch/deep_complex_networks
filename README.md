@@ -1,10 +1,5 @@
 # Complex-Valued Neural Networks in Keras with Tensorflow
-[![Documentation](https://readthedocs.org/projects/keras-complex/badge/?version=latest)](https://keras-complex.readthedocs.io/) [![PyPI Status](https://img.shields.io/pypi/status/keras-complex.svg)](https://pypi.python.org/pypi/keras-complex) [![PyPI Versions](https://img.shields.io/pypi/pyversions/keras-complex.svg)](https://pypi.python.org/pypi/keras-complex) [![Build Status](https://travis-ci.org/JesperDramsch/keras-complex.svg?branch=master)](https://travis-ci.org/JesperDramsch/keras-complex) [![PyPI License](https://img.shields.io/pypi/l/keras-complex.svg)](LICENSCE.md)
-
-
-
-
-
+[![Documentation](https://readthedocs.org/projects/keras-complex/badge/?version=latest)](https://keras-complex.readthedocs.io/) [![PyPI Status](https://img.shields.io/pypi/status/keras-complex.svg)](https://pypi.python.org/pypi/keras-complex) [![PyPI Versions](https://img.shields.io/pypi/pyversions/keras-complex.svg)](https://pypi.python.org/pypi/keras-complex) [![Build Status](https://travis-ci.org/JesperDramsch/keras-complex.svg?branch=main)](https://travis-ci.org/JesperDramsch/keras-complex) [![PyPI License](https://img.shields.io/pypi/l/keras-complex.svg)](LICENSCE.md)
 
 
 [Complex-valued convolutions](https://en.wikipedia.org/wiki/Convolution#Domain_of_definition) could provide some interesting results in signal processing-based deep learning. A simple(-ish) idea is including explicit phase information of time series in neural networks. This code enables complex-valued convolution in convolutional neural networks in [keras](https://keras.io) with the [TensorFlow](https://tensorflow.org/) backend. This makes the network modular and interoperable with standard keras layers and operations.
@@ -18,7 +13,7 @@ Requirements
 - scipy
 - scikit-learn
 - keras
-- tensorflow 1.X or tensorflow-gpu 1.X
+- tensorflow 2.X or tensorflow-gpu 2.X
 
 Install requirements for computer vision experiments with pip:
 ```
@@ -71,18 +66,7 @@ An example working implementation of an autoencoder can be found [here](https://
 Citation
 --------
 
-Please cite the original work as: 
-
-```
-@ARTICLE {Trabelsi2017,
-    author  = "Chiheb Trabelsi, Olexa Bilaniuk, Ying Zhang, Dmitriy Serdyuk, Sandeep Subramanian, João Felipe Santos, Soroush Mehri, Negar Rostamzadeh, Yoshua Bengio, Christopher J Pal",
-    title   = "Deep Complex Networks",
-    journal = "arXiv preprint arXiv:1705.09792",
-    year    = "2017"
-}
-```
-
-Cite this software version as:
+Find the [CITATION file](/CITATION.cff) or cite this software version as:
 ```
 @misc{dramsch2019complex, 
     title     = {Complex-Valued Neural Networks in Keras with Tensorflow}, 
@@ -91,5 +75,16 @@ Cite this software version as:
     publisher = {figshare}, 
     author    = {Dramsch, Jesper S{\"o}ren and Contributors}, 
     year      = {2019}
+}
+```
+
+Please cite the original work as: 
+
+```
+@ARTICLE {Trabelsi2017,
+    author  = "Chiheb Trabelsi, Olexa Bilaniuk, Ying Zhang, Dmitriy Serdyuk, Sandeep Subramanian, João Felipe Santos, Soroush Mehri, Negar Rostamzadeh, Yoshua Bengio, Christopher J Pal",
+    title   = "Deep Complex Networks",
+    journal = "arXiv preprint arXiv:1705.09792",
+    year    = "2017"
 }
 ```

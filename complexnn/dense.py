@@ -163,7 +163,7 @@ class ComplexDense(Layer):
         self.input_spec = InputSpec(ndim=2, axes={-1: 2 * input_dim})
         self.built = True
 
-    def call(self, inputs, **kwargs):
+    def call(self, inputs):
         input_shape = K.shape(inputs)
         input_dim = input_shape[-1] // 2
         real_input = inputs[:, :input_dim]

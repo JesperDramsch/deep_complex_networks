@@ -406,7 +406,7 @@ class ComplexConv(Layer):
         self.input_spec = InputSpec(ndim=self.rank + 2, axes={channel_axis: input_dim * 2})
         self.built = True
 
-    def call(self, inputs, **kwargs):
+    def call(self, inputs):
         if self.data_format == "channels_first":
             channel_axis = 1
         else:

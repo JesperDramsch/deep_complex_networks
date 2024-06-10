@@ -496,44 +496,43 @@ class ComplexBatchNormalization(Layer):
         )
         if training in {0, False}:
             return input_bn
-        else:
-            update_list = []
-            if self.center:
-                update_list.append(
-                    K.moving_average_update(self.moving_mean, mu, self.momentum)
-                )
-            if self.scale:
-                update_list.append(
-                    K.moving_average_update(self.moving_Vrr, Vrr, self.momentum)
-                )
-                update_list.append(
-                    K.moving_average_update(self.moving_Vii, Vii, self.momentum)
-                )
-                update_list.append(
-                    K.moving_average_update(self.moving_Vri, Vri, self.momentum)
-                )
-            self.add_update(update_list)
+        update_list = []
+        if self.center:
+            update_list.append(
+                K.moving_average_update(self.moving_mean, mu, self.momentum)
+            )
+        if self.scale:
+            update_list.append(
+                K.moving_average_update(self.moving_Vrr, Vrr, self.momentum)
+            )
+            update_list.append(
+                K.moving_average_update(self.moving_Vii, Vii, self.momentum)
+            )
+            update_list.append(
+                K.moving_average_update(self.moving_Vri, Vri, self.momentum)
+            )
+        self.add_update(update_list)
 
-            def normalize_inference():
-                if self.center:
-                    inference_centred = inputs - K.reshape(
-                        self.moving_mean, broadcast_mu_shape
-                    )
-                else:
-                    inference_centred = inputs
-                return ComplexBN(
-                    inference_centred,
-                    self.moving_Vrr,
-                    self.moving_Vii,
-                    self.moving_Vri,
-                    self.beta,
-                    self.gamma_rr,
-                    self.gamma_ri,
-                    self.gamma_ii,
-                    self.scale,
-                    self.center,
-                    axis=self.axis,
+        def normalize_inference():
+            if self.center:
+                inference_centred = inputs - K.reshape(
+                    self.moving_mean, broadcast_mu_shape
                 )
+            else:
+                inference_centred = inputs
+            return ComplexBN(
+                inference_centred,
+                self.moving_Vrr,
+                self.moving_Vii,
+                self.moving_Vri,
+                self.beta,
+                self.gamma_rr,
+                self.gamma_ri,
+                self.gamma_ii,
+                self.scale,
+                self.center,
+                axis=self.axis,
+            )
 
         # Pick the normalized form corresponding to the training phase.
         return K.in_train_phase(input_bn, normalize_inference, training=training)

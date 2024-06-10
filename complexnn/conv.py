@@ -354,7 +354,7 @@ class ComplexConv(Layer):
         actual_kernel_shape[-1] *= 2
 
         self.kernel = self.add_weight(
-            "kernel",
+            name="kernel",
             shape=tuple(actual_kernel_shape),
             initializer=kern_init,
             regularizer=self.kernel_regularizer,
@@ -392,8 +392,8 @@ class ComplexConv(Layer):
         if self.use_bias:
             bias_shape = (2 * self.filters,)
             self.bias = self.add_weight(
-                "bias",
-                bias_shape,
+                name="bias",
+                shape=bias_shape,
                 initializer=self.bias_initializer,
                 regularizer=self.bias_regularizer,
                 constraint=self.bias_constraint,
